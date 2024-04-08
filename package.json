@@ -27,6 +27,7 @@
     "@stitches/react": "^1.2.8",
     "anser": "^2.1.1",
     "css.escape": "^1.5.1",
+    "deepmerge": "^4.3.1",
     "disqus-react": "^1.1.1",
     "error-stack-parser": "^2.1.4",
     "fs-extra": "^11.2.0",
