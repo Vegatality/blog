@@ -3,7 +3,7 @@
   "private": true,
   "description": "purple flavored blog starter based on Gatsby",
   "version": "1.0.0",
-  "author": "Changhui Lee <iam@xo.dev>",
+  "author": "vegatality <vegatality@gmail.com>",
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
@@ -16,15 +16,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blurfx/gatsby-starter-lavender.git"
+    "url": "git+https://github.com/Vegatality/blog"
   },
   "bugs": {
-    "url": "https://github.com/blurfx/gatsby-starter-lavender/issues"
+    "url": "https://github.com/Vegatality/blog/issues"
   },
   "dependencies": {
+    "@gatsbyjs/reach-router": "^1.3.6",
+    "@gatsbyjs/webpack-hot-middleware": "^2.25.3",
     "@stitches/react": "^1.2.8",
+    "anser": "^2.1.1",
+    "css.escape": "^1.5.1",
     "disqus-react": "^1.1.1",
+    "error-stack-parser": "^2.1.4",
+    "fs-extra": "^11.2.0",
     "gatsby": "^4.13.1",
+    "gatsby-link": "^5.13.1",
     "gatsby-plugin-feed": "^4.13.0",
     "gatsby-plugin-gatsby-cloud": "^4.13.0",
     "gatsby-plugin-google-analytics": "^4.13.0",
@@ -35,6 +42,7 @@
     "gatsby-plugin-react-helmet": "^5.13.0",
     "gatsby-plugin-sharp": "^4.13.0",
     "gatsby-plugin-typegen": "^2.2.4",
+    "gatsby-react-router-scroll": "^6.13.1",
     "gatsby-remark-autolink-headers": "^5.13.0",
     "gatsby-remark-copy-linked-files": "^5.13.0",
     "gatsby-remark-external-links": "^0.0.4",
@@ -43,15 +51,22 @@
     "gatsby-remark-prismjs": "^6.13.0",
     "gatsby-remark-responsive-iframe": "^5.13.0",
     "gatsby-remark-smartypants": "^5.13.0",
+    "gatsby-script": "^2.13.0",
     "gatsby-source-filesystem": "^4.13.0",
     "gatsby-transformer-remark": "^5.13.0",
     "gatsby-transformer-sharp": "^4.13.0",
     "katex": "^0.13.13",
+    "lodash": "^4.17.21",
+    "mitt": "^3.0.1",
+    "node-html-parser": "^6.1.13",
+    "platform": "^1.3.6",
     "prismjs": "^1.23.0",
+    "prop-types": "^15.8.1",
     "query-string": "^7.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "shallow-compare": "^1.2.2"
   },
   "devDependencies": {
     "@babel/register": "^7.13.16",
@@ -73,7 +88,7 @@
   "resolutions": {
     "source-map": "^0.8.0-beta.0"
   },
-  "homepage": "https://github.com/blurfx/gatsby-starter-lavender#readme",
+  "homepage": "https://github.com/Vegatality/blog#readme",
   "keywords": [
     "gatsby",
     "gatsby-starter",
