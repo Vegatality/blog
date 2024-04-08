@@ -62,7 +62,6 @@ export const { styled, css, getCssText, createTheme, globalCss } = createStitche
   },
 });
 
-
 export const darkTheme = createTheme('dark-theme', {
   colors: {
     gray100: '#303136',
@@ -72,7 +71,7 @@ export const darkTheme = createTheme('dark-theme', {
     gray500: '#cfc8bc',
     gray600: '#e5dfd6',
     gray700: '#f6f1ea',
-    black: '#222425',
+    black: '#282C35',
 
     primary100: '#edeafc',
     primary200: '#b9acff',

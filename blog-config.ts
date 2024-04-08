@@ -1,7 +1,8 @@
 const config = {
   title: 'Vegatality Blog', // Blog name
   author: 'Vegatality', // Your name
-  description: 'migration of the vegatality blog to gatsby', // Blog description
+  // eslint-disable-next-line quotes
+  description: "I'm in the process of moving from a Tistory blog...", // Blog description
   siteUrl: 'https://vegatality.netlify.app/',
   thumbnail: '/thumbnails/main.png', // Default blog thumbnail. i.e. '/thumbnails/main.png'
   social: {
