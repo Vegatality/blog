@@ -1,4 +1,4 @@
-import { Link } from 'gatsby';
+import { Link } from 'gatsby-link';
 import React, { memo } from 'react';
 
 import { Header, Section, Title } from './styles';
@@ -11,11 +11,7 @@ interface Props {
 
 const ArticleListItem = ({ slug, title, description }: Props) => (
   <li key={slug}>
-    <article
-      className='post-list-item'
-      itemScope
-      itemType='http://schema.org/Article'
-    >
+    <article className='post-list-item' itemScope itemType='http://schema.org/Article'>
       <Header>
         <Title>
           <Link to={slug} itemProp='url'>

@@ -1,4 +1,4 @@
-import { Link } from 'gatsby';
+import { Link } from 'gatsby-link';
 import React, { memo } from 'react';
 
 import ThemeSwitch from '~/components/ThemeSwitch';
@@ -16,7 +16,9 @@ const Header = ({ title, resetFilter }: Props) => {
       <TitleWrapper>
         <Circle />
         <Title>
-          <Link to={'/'} onClick={resetFilter}>{title}</Link>
+          <Link to={'/'} onClick={resetFilter}>
+            {title}
+          </Link>
         </Title>
       </TitleWrapper>
       <ThemeSwitch />

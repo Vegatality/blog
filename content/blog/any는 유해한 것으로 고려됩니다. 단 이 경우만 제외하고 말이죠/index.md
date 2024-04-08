@@ -1,3 +1,11 @@
+---
+title: any는 유해한 것으로 고려됩니다. 단 이 경우만 제외하고 말이죠
+date: 2024-04-08
+description: 'typescript any에 대한 오해'
+tags: ['#Typescript']
+thumbnail:
+---
+
 ## 개요
 
 `any`는 다들 아시다시피 슈퍼 타입이든 서브 타입이든 고려하지 않고 할당이 가능한 강력하지만 위험한 타입입니다.
@@ -13,6 +21,10 @@ myFunction('abc'); // This will fail at runtime!
 ```
 
 그래서 `any`를 사용하는 것은 대부분 유해하기 때문에 권장되지 않습니다. 그러나 `any`를 예외적으로 사용해야 하는 경우가 있습니다.
+
+<br />
+<br />
+<br />
 
 ## [Type Argument Constraints](https://www.totaltypescript.com/any-considered-harmful#type-argument-constraints)
 
@@ -174,15 +186,6 @@ const youSayGoodbyeISayHello = <TInput extends 'hello' | 'goodbye'>(
 한 가지 의문이 남습니다. 코드베이스에서 `any`를 금지해야 할까요? 제 생각에는 '예'라고 대답해야 한다고 생각합니다. ESLint 규칙을 설정하여 사용을 방지하고 가능한 한 사용을 피해야 합니다.
 
 하지만 `any`가 꼭 필요한 경우도 있습니다. 이러한 경우 `eslint-disable`을 사용하여 우회할 가치가 있습니다. 따라서 이 문서를 북마크에 추가하고 사용해야 할 필요가 있을 때 PR에 첨부하세요.
-
-Nextjs page router
-Typescript
-Tanstack Query
-Git & Github
-OAuth - 구글, 카카오
-Styled Components
-AWS? Vercel? - organization? vercel 사용 불가능 - 돈나감
-Storybook,
 
 ## 레퍼런스
 

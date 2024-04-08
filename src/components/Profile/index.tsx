@@ -1,4 +1,4 @@
-import { Link } from 'gatsby';
+import { Link } from 'gatsby-link';
 import { StaticImage } from 'gatsby-plugin-image';
 import React, { memo, PropsWithChildren } from 'react';
 
@@ -7,10 +7,9 @@ import { useCheckAboutPage } from '~/hooks/useCheckAboutPage';
 
 import { Container, ExternalLinks, LinkItem, Name, Description, Wrapper } from './styles';
 
-
 interface SocialLinkProps {
-  username?: string,
-  urlPrefix: string,
+  username?: string;
+  urlPrefix: string;
 }
 
 const ExternalLink = ({ username, urlPrefix, children }: PropsWithChildren<SocialLinkProps>) => {
@@ -20,14 +19,14 @@ const ExternalLink = ({ username, urlPrefix, children }: PropsWithChildren<Socia
 
   return (
     <LinkItem>
-      <a href={`${urlPrefix}${username}`}>{ children }</a>
+      <a href={`${urlPrefix}${username}`}>{children}</a>
     </LinkItem>
   );
 };
 
 interface SocialLink {
-  text: string,
-  url: string,
+  text: string;
+  url: string;
 }
 
 const Profile = () => {
@@ -58,7 +57,7 @@ const Profile = () => {
     linkedin: {
       text: 'LinkedIn',
       url: 'https://www.linkedin.com/in/',
-    }
+    },
   };
 
   return (
@@ -67,7 +66,7 @@ const Profile = () => {
         className='profile-image'
         layout='fixed'
         formats={['auto', 'webp', 'avif']}
-        src='../../images/profile-pic.jpeg'
+        src='../../images/profile-pic.png'
         width={70}
         height={70}
         quality={95}
@@ -81,11 +80,11 @@ const Profile = () => {
         <Description>{description}</Description>
 
         <ExternalLinks>
-          {isAboutPageExists &&
-              <LinkItem>
-                <Link to={'/about'}>About</Link>
-              </LinkItem>
-          }
+          {isAboutPageExists && (
+            <LinkItem>
+              <Link to={'/about'}>About</Link>
+            </LinkItem>
+          )}
           {Object.entries(social ?? {}).map(([key, username]) => {
             const serviceName = key as keyof GatsbyTypes.Social;
 
