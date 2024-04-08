@@ -143,6 +143,9 @@ dependencies:
   react-helmet:
     specifier: ^6.1.0
     version: 6.1.0(react@18.2.0)
+  react-lifecycles-compat:
+    specifier: ^3.0.4
+    version: 3.0.4
   shallow-compare:
     specifier: ^1.2.2
     version: 1.2.2
