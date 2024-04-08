@@ -1,0 +1,34 @@
+section[itemprop='articleBody'] mark strong,
+section[itemprop='articleBody'] mark em {
+  color: rgba(20, 18, 18, 0.8);
+}
+
+/* Custom highlights 커스텀 하이라이트 */
+section[itemprop='articleBody'] mark {
+  /* custom text color and font-weight 커스텀 글자 색상 및 굵기 */
+  color: rgba(20, 18, 18, 0.8);
+  font-weight: bold;
+}
+
+/*rounded*/
+
+section[itemprop='articleBody'] mark {
+  margin: 0 -0.05em;
+  padding: 0.125em 0.15em;
+  border-radius: 0.2em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+section[itemprop='articleBody'] mark span {
+  border-radius: 0.2em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+section[itemprop='articleBody'] mark span + span {
+  padding-left: 0em;
+  padding-right: 0.15em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}

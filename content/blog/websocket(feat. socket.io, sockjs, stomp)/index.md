@@ -42,7 +42,11 @@ thumbnail:
 spring을 사용할 때 sockJS, STOMP를 주로 사용한다.
 
 **단, sockJS는 stompjs 라이브러리에서 권장하고 있지 않다.** 왜냐하면, 이제는 WebSocket api를 대부분 지원([can I use WebSocket ?](https://caniuse.com/?search=WebSocket))하고 있기 때문이다.
-정말 구형 브라우저까지 지원할거면 [example with sockJS 카테고리](<#[Example%20with%20stompjs](https%20//stomp-js.github.io/guide/stompjs/rx-stomp/using-stomp-with-sockjs.html%20example-with-stompjs)>)를 보도록 하자.
+정말 구형 브라우저까지 지원할거면 [example with sockJS 카테고리](#[Example%20with%20sockJS](https%20//stomp-js.github.io/guide/stompjs/rx-stomp/using-stomp-with-sockjs.html%20example-with-stompjs))를 보도록 하자.
+
+<br />
+<br />
+<br />
 
 ## Browser native WebSocket api
 
@@ -85,6 +89,10 @@ private _createWebSocket(): IStompSocket {
     return webSocket;
   }
 ```
+
+<br />
+<br />
+<br />
 
 ## Stompjs 사용 예시
 
@@ -137,6 +145,12 @@ client.onConnect = function (frame) {
 
 client.activate();
 ```
+
+
+<br />
+<br />
+<br />
+
 
 ## [Example with sockJS](https://stomp-js.github.io/guide/stompjs/rx-stomp/using-stomp-with-sockjs.html#example-with-stompjs)
 
@@ -195,6 +209,11 @@ SockJS를 쓰면 WebSocket api를 지원하는 브라우저에서 WebSocket api�
 [Does SockJS emulate websockets even on a browser that supports websockets?](https://stackoverflow.com/questions/24584284/does-sockjs-emulate-websockets-even-on-a-browser-that-supports-websockets)를 참고해보면, native WebSocket을 먼저 사용하려고 하되, 없으면 SockJS에서 WebSocket과 유사한 api를 expose한다고 한다.
 
 그럼에도 불구하고 if문을 통해 webSocketFactory를 정의하는 까닭은 그냥 WebSocket으로 했을 때와 SockJS로 했을 때의 속도? 면에서 차이가 있기 때문이라고 추정한다(개인적인 의견임). SockJS로 하는 것보다 STOMP 기본값(기본 ws instance)인 WebSocket api를 사용하는 것이 더 빠를 것이다.
+
+
+<br />
+<br />
+<br />
 
 ## 참고
 

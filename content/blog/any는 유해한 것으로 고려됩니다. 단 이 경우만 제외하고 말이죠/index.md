@@ -41,6 +41,9 @@ type ReturnType<T extends (...args: unknown[]) => unknown> =
 
 위 코드는 전달인자가 없으면 잘 작동하는 것처럼 보입니다.
 
+<br />
+<br />
+
 ```ts
 const myFunction = () => {
   console.log('Hey!');
@@ -66,6 +69,11 @@ Type '(input: string) => void' does not satisfy the constraint '(...args: unknow
     Type 'unknown' is not assignable to type 'string'.
 
 ```
+
+
+<br />
+<br />
+
 
 이는 사실 함수 매개변수 타입을 `unknown`으로 바꾸면 해결되기는 합니다.
 
@@ -97,6 +105,10 @@ type Result = ReturnType<typeof myFunction>;
 
 이 방식은 안전합니다. 그 이유는 우리가 넓은 타입을 선언한 것이 의도적이기 때문입니다. 우리는 "함수이기만 하면, 함수가 어떤 것을 받든 상관 안 해"라고 말하는 것입니다. 이게 바로 `any`의 안전한 사용 예시입니다.
 
+<br />
+<br />
+<br />
+
 ## [Returning Conditional Types From Generic Functions](https://www.totaltypescript.com/any-considered-harmful#returning-conditional-types-from-generic-functions)
 
 어떤 곳에서는 TypeScript의 좁아지는 기능이 우리가 원하는 만큼 좋지 않습니다. 조건에 따라 다른 유형을 반환하는 함수를 만들고 싶다고 가정해 보겠습니다:
@@ -115,6 +127,9 @@ const result = youSayGoodbyeISayHello('hello');
 ```
 
 이 함수는 우리가 원하는대로 작동하지 않고 있어요. 우리는 "goobye"에는 "hello"가 나오고, "hello"에는 "goodbye"가 나오기를 원하고 있습니다. 그러나 현재, `result`는 `hello | goodbye`로 타입되어 있습니다.
+
+<br />
+<br />
 
 리턴되는 타입도 런타임 때 로직과 동일하게 미러링 처리하면 될까요?
 
@@ -162,6 +177,9 @@ const youSayGoodbyeISayHello = <TInput extends 'hello' | 'goodbye'>(input: TInpu
 };
 ```
 
+<br />
+<br />
+
 그런데 이런 경우에는, `as any`를 사용하는 것이 더 적합할 수도 있습니다.:
 
 ```ts
@@ -181,11 +199,19 @@ const youSayGoodbyeISayHello = <TInput extends 'hello' | 'goodbye'>(
 그러나 이러한 경우에는, `as any`를 사용하고 이 함수의 동작을 위한 unit test를 작성하는 것이 종종 더 낫습니다.
 타입스크립트는 이러한 사항을 검사하는 데 한계가 있기 때문에 이렇게 하는 것이 타입 안전성에 거의 근접한 경우가 많습니다.
 
+<br />
+<br />
+<br />
+
 ## 결론
 
 한 가지 의문이 남습니다. 코드베이스에서 `any`를 금지해야 할까요? 제 생각에는 '예'라고 대답해야 한다고 생각합니다. ESLint 규칙을 설정하여 사용을 방지하고 가능한 한 사용을 피해야 합니다.
 
 하지만 `any`가 꼭 필요한 경우도 있습니다. 이러한 경우 `eslint-disable`을 사용하여 우회할 가치가 있습니다. 따라서 이 문서를 북마크에 추가하고 사용해야 할 필요가 있을 때 PR에 첨부하세요.
+
+<br />
+<br />
+<br />
 
 ## 레퍼런스
 

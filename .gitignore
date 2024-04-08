@@ -95,3 +95,7 @@ modules.xml
 
 # gatsby-plugin-typegen
 **/__generated__/
+
+# obsidian
+.obsidian/
+_snippet/

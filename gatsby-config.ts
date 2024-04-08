@@ -2,11 +2,11 @@ import siteMetadata from './blog-config';
 
 interface FeedSerializeProps {
   query: {
-    site: GatsbyTypes.Site,
+    site: GatsbyTypes.Site;
     allMarkdownRemark: {
-      nodes: GatsbyTypes.MarkdownRemark[],
-    }
-  }
+      nodes: GatsbyTypes.MarkdownRemark[];
+    };
+  };
 }
 
 export const plugins = [
@@ -25,6 +25,7 @@ export const plugins = [
     options: {
       path: `${__dirname}/content/blog`,
       name: 'blog',
+      ignore: ['**/\.*','**/_snippet/**/*'], // ignore files starting with a dot or underscore
     },
   },
   {
@@ -55,13 +56,13 @@ export const plugins = [
           options: {
             className: 'heading-anchor',
             isIconAfterHeader: true,
-          }
+          },
         },
         {
           resolve: 'gatsby-remark-katex',
           options: {
             strict: 'ignore',
-          }
+          },
         },
         'gatsby-remark-external-links',
         'gatsby-remark-prismjs',
@@ -98,17 +99,18 @@ export const plugins = [
       `,
       feeds: [
         {
-          serialize: ({ query: { site, allMarkdownRemark } }: FeedSerializeProps) => allMarkdownRemark.nodes.map((node) => {
-            const url = `${site.siteMetadata?.siteUrl ?? ''}${node.fields?.slug ?? ''}`;
-            return {
-              ...node.frontmatter,
-              url,
-              description: node.excerpt,
-              date: node.frontmatter?.date,
-              guid: url,
-              custom_elements: [{ 'content:encoded': node.html }],
-            };
-          }),
+          serialize: ({ query: { site, allMarkdownRemark } }: FeedSerializeProps) =>
+            allMarkdownRemark.nodes.map(node => {
+              const url = `${site.siteMetadata?.siteUrl ?? ''}${node.fields?.slug ?? ''}`;
+              return {
+                ...node.frontmatter,
+                url,
+                description: node.excerpt,
+                date: node.frontmatter?.date,
+                guid: url,
+                custom_elements: [{ 'content:encoded': node.html }],
+              };
+            }),
           query: `
             {
               allMarkdownRemark(
@@ -148,7 +150,7 @@ export const plugins = [
   },
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-offline',
-  'gatsby-plugin-typegen'
+  'gatsby-plugin-typegen',
 ];
 
 export { siteMetadata };
