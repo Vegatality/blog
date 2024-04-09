@@ -58,11 +58,15 @@ spring을 사용할 때 sockJS, STOMP를 주로 사용한다.
 >데이터가 양방향으로 전송되는 통신 채널을 의미한다.
 >양쪽에서 데이터를 동시에 송수신할 수 있다.
 
+<br />
+
 ### HTTP와의 차이점은?
 기존 HTTP는 단방향 통신이다.
 클라이언트가 Request를 보내면 서버가 클라이언트로 Response를 보내는 방식으로 동작했다.
 
 웹소켓은 연결이 이루어지면 클라이언트의 요청 없이도 서버로부터 데이터를 수신할 수 있다. 웹소켓은 이전 요청 상태를 기억하지 않는 무상태성(Stateless)을 가지는 HTTP와는 다르게 상태(Statefull) 프로토콜이다. 그렇기 때문에 한 번 연결되면 같은 연결을 이용해 통신하므로 TCP Connection 비용을 아낄 수 있다.
+
+<br />
 
 ### 웹소켓의 동작
 
@@ -83,20 +87,28 @@ spring을 사용할 때 sockJS, STOMP를 주로 사용한다.
 
 이 때 데이터를 암호화하기 위해 ws가 아닌 wss 프로토콜을 사용할 수 있다.
 
+<br />
+
 ### 단점
 
 WebSocket 프로토콜은 Text 또는 Binary 두 가지 유형의 메시지 타입은 정의하지만 메시지의 내용에 대해서는 정의하지 않는다.
 즉, WebSocket만 사용해서 구현하게 되면 해당 메시지가 어떤 요청인지, 어떤 포맷으로 오는지, 메시지 통신 과정을 어떻게 처리해야 하는지 정해져 있지 않아 일일이 구현해야 한다.
 
+<br />
+
 ### 문제해결
 
 따라서 STOMP(Simple Text Oriented Messaging Protocol)라는 프로토콜을 서브 프로토콜로 사용한다.
+
+<br />
 
 ### STOMP 란?
 
 <mark style="background: #BBFABBA6;">STOMP는 클라이언트와 서버가 서로 통신하는 데 있어 메시지의 형식, 유형, 내용 등을 정의해주는 프로토콜</mark>이라고 할 수 있다.
 STOMP를 사용하게 되면 단순한 Binary, Text가 아닌 규격을 갖춘 메시지를 보낼 수 있다.
 스프링은 **spring-websocket** 모듈을 통해서 STOMP를 제공하고 있다.
+
+<br />
 
 ### stompjs는 WebSocket 위에서 돌아간다?
 
