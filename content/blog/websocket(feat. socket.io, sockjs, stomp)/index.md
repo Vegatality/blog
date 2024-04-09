@@ -50,6 +50,39 @@ spring을 사용할 때 sockJS, STOMP를 주로 사용한다.
 
 ## Browser native WebSocket api
 
+### 웹소켓(WebSocket) 프로토콜이란?
+웹소켓(WebSocket)은 클라이언트와 서버(브라우저와 서버)를 연결하고 실시간으로 통신이 가능하도록 하는 통신 프로토콜이다.
+웹소켓은 하나의 TCP(Transmission Control Protocol) 접속에 전이중(duplex) 통신 채널을 제공한다.
+
+>[!TIP] 전이중(duplex) 통신 채널
+>데이터가 양방향으로 전송되는 통신 채널을 의미한다.
+>양쪽에서 데이터를 동시에 송수신할 수 있다.
+
+### HTTP와의 차이점은?
+기존 HTTP는 단방향 통신이다.
+클라이언트가 Request를 보내면 서버가 클라이언트로 Response를 보내는 방식으로 동작했다.
+
+웹소켓은 연결이 이루어지면 클라이언트의 요청 없이도 서버로부터 데이터를 수신할 수 있다. 웹소켓은 이전 요청 상태를 기억하지 않는 무상태성(Stateless)을 가지는 HTTP와는 다르게 상태(Statefull) 프로토콜이다. 그렇기 때문에 한 번 연결되면 같은 연결을 이용해 통신하므로 TCP Connection 비용을 아낄 수 있다.
+
+### 웹소켓의 동작
+
+<div style="display: flex; flex-direction: row; justify-conent: center">
+	<img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Websocket_connection.png" style="width: 50%; justify-self: center"/>
+</div>
+
+<br />
+
+웹소켓은 HTTP port 80, HTTPS는 port 443 위에서 동작한다.
+웹소켓은 TCP 연결처럼 HandShake 방식을 사용해서 연결된다.
+이 때 HTTP 업그레이드(HTTP Upgrade) 헤더를 사용해서 HTTP 프로토콜에서 웹소켓 프로토콜로 변경한다.
+
+즉, HTTP 프로토콜을 사용하지 않는 것은 아니란 것이다.
+최초 접속시에는 HTTP 프로토콜을 사용해서 핸드셰이킹을 한다.
+
+연결이 맺어진 이후에는 어느 한 쪽이 연결을 끊지 않는 한 영구적인 동일한 채널이 맺어지고, HTTP 프로토콜이 웹소켓 프로토콜로 변경된다.
+
+이 때 데이터를 암호화하기 위해 ws가 아닌 wss 프로토콜을 사용할 수 있다.
+
 ### 단점
 
 WebSocket 프로토콜은 Text 또는 Binary 두 가지 유형의 메시지 타입은 정의하지만 메시지의 내용에 대해서는 정의하지 않는다.
