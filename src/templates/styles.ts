@@ -8,11 +8,29 @@ export const Article = styled('article', {
 
     svg: {
       fill: '$text500',
-    }
-  }
+    },
+  },
+});
+
+export const ContentContainer = styled('div', {
+  display: 'flex',
+  position: 'relative',
+  flexDirection: 'column',
+  '@desktop': {
+    flexDirection: 'row-reverse',
+    justifyContent: 'flex-end',
+  },
 });
 
 export const TableOfContents = styled('div', {
+  '@desktop': {
+    minWidth: '20rem',
+    height: 'fit-content',
+    position: 'sticky',
+    top: 130,
+    margin: '0 2rem 1.5rem 2rem',
+  },
+
   marginBottom: '1.5rem',
 
   '> ul': {
@@ -33,7 +51,7 @@ export const TableOfContents = styled('div', {
 
       a: {
         textDecoration: 'underline',
-      }
+      },
     },
   },
 });
@@ -60,6 +78,7 @@ export const ArticleMetadata = styled('div', {
 
 export const Content = styled('section', {
   wordBreak: 'keep-all',
+  maxWidth: '$contentWidth',
 
   h1: {
     marginTop: '2rem',
@@ -69,7 +88,7 @@ export const Content = styled('section', {
 
     a: {
       borderBottom: 'none',
-    }
+    },
   },
   h2: {
     marginTop: '1.5rem',
@@ -79,14 +98,15 @@ export const Content = styled('section', {
 
     a: {
       borderBottom: 'none',
-    }
+    },
   },
   a: {
     borderBottom: '1px solid $borderPrimary',
 
     color: '$link',
 
-    transition: 'color $transitionDuration $transitionTiming, border-bottom-color $transitionDuration $transitionTiming',
+    transition:
+      'color $transitionDuration $transitionTiming, border-bottom-color $transitionDuration $transitionTiming',
   },
   pre: {
     code: {
@@ -96,7 +116,7 @@ export const Content = styled('section', {
   },
   'pre, code': {
     fontVariantLigatures: 'none',
-  }
+  },
 });
 
 export const Footer = styled('footer', {
@@ -111,5 +131,5 @@ export const Footer = styled('footer', {
     transition: 'background-color $transitionDuration $transitionTiming',
 
     content: '',
-  }
+  },
 });

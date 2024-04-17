@@ -13,7 +13,7 @@ const config = {
     instagram: '', // Instagram username
   },
   comment: {
-    utterances: 'https://github.com/Vegatality/blog', // Your GitHub repository
+    utterances: 'Vegatality/blog', // Your GitHub repository
     disqusShortName: '', // Disqus short name
   },
   icon: 'src/images/profile-pic_512x512.png', // path of blog icon

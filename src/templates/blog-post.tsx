@@ -12,10 +12,7 @@ import Layout from '~/layout';
 
 import 'katex/dist/katex.min.css';
 
-import {
-  Article, TableOfContents, Content, Footer, Header, ArticleMetadata, Title
-} from './styles';
-
+import { Article, TableOfContents, Content, Footer, Header, ArticleMetadata, Title, ContentContainer } from './styles';
 
 const BlogPostTemplate = ({ data, location }: PageProps<GatsbyTypes.BlogPostBySlugQuery>) => {
   const post = data.markdownRemark!;
@@ -45,16 +42,8 @@ const BlogPostTemplate = ({ data, location }: PageProps<GatsbyTypes.BlogPostBySl
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo
-        lang='en'
-        title={title ?? ''}
-        description={description ?? post.excerpt ?? ''}
-        meta={meta}
-      />
-      <Article
-        itemScope
-        itemType='http://schema.org/Article'
-      >
+      <Seo lang='en' title={title ?? ''} description={description ?? post.excerpt ?? ''} meta={meta} />
+      <Article itemScope itemType='http://schema.org/Article'>
         <Header>
           <Title itemProp='headline'>{title}</Title>
           <ArticleMetadata>
@@ -62,19 +51,18 @@ const BlogPostTemplate = ({ data, location }: PageProps<GatsbyTypes.BlogPostBySl
             <Tags tags={tags as string[]} />
           </ArticleMetadata>
         </Header>
-        <TableOfContents
-          dangerouslySetInnerHTML={{ __html: post.tableOfContents ?? '' }}
-        />
-        <Content
-          dangerouslySetInnerHTML={{ __html: post.html ?? ''}}
-          itemProp='articleBody'
-        />
+        <ContentContainer>
+          <TableOfContents dangerouslySetInnerHTML={{ __html: post.tableOfContents ?? '' }} />
+          <Content dangerouslySetInnerHTML={{ __html: post.html ?? '' }} itemProp='articleBody' />
+        </ContentContainer>
+        {/* <TableOfContents dangerouslySetInnerHTML={{ __html: post.tableOfContents ?? '' }} />
+        <Content dangerouslySetInnerHTML={{ __html: post.html ?? '' }} itemProp='articleBody' /> */}
         <Footer>
           <Profile />
         </Footer>
       </Article>
-      { commentConfig?.utterances && <Utterances repo={commentConfig.utterances} /> }
-      { commentConfig?.disqusShortName && (
+      {commentConfig?.utterances && <Utterances repo={commentConfig.utterances} />}
+      {commentConfig?.disqusShortName && (
         <DiscussionEmbed shortname={commentConfig?.disqusShortName} config={disqusConfig} />
       )}
       <ArticleNavigator previousArticle={previous} nextArticle={next} />
@@ -85,11 +73,7 @@ const BlogPostTemplate = ({ data, location }: PageProps<GatsbyTypes.BlogPostBySl
 export default BlogPostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug(
-    $id: String!
-    $previousPostId: String
-    $nextPostId: String
-  ) {
+  query BlogPostBySlug($id: String!, $previousPostId: String, $nextPostId: String) {
     site {
       siteMetadata {
         title

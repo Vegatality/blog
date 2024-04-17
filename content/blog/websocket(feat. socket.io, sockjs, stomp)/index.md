@@ -55,6 +55,7 @@ spring을 사용할 때 sockJS, STOMP를 주로 사용한다.
 웹소켓은 하나의 TCP(Transmission Control Protocol) 접속에 전이중(duplex) 통신 채널을 제공한다.
 
 >[!TIP] 전이중(duplex) 통신 채널
+>
 >데이터가 양방향으로 전송되는 통신 채널을 의미한다.
 >양쪽에서 데이터를 동시에 송수신할 수 있다.
 

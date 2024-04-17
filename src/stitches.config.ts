@@ -58,6 +58,7 @@ export const { styled, css, getCssText, createTheme, globalCss } = createStitche
     },
   },
   media: {
+    desktop: '(min-width: 1240px)',
     md: '(min-width: 48em)',
   },
 });
