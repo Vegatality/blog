@@ -4,7 +4,7 @@ const config = {
   // eslint-disable-next-line quotes
   description: "I'm in the process of migration from Tistory blog...", // Blog description
   siteUrl: 'https://vegatality.netlify.app/',
-  thumbnail: '/thumbnails/main.png', // Default blog thumbnail. i.e. '/thumbnails/main.png'
+  thumbnail: '/thumbnails/vega-wide.webp', // Default blog thumbnail. i.e. '/thumbnails/main.png'
   social: {
     github: 'Vegatality', // GitHub username
     twitter: '', // Twitter username
@@ -16,7 +16,7 @@ const config = {
     utterances: 'Vegatality/blog', // Your GitHub repository
     disqusShortName: '', // Disqus short name
   },
-  icon: 'src/images/profile-pic_512x512.png', // path of blog icon
+  icon: 'src/images/vega-round.png', // path of blog icon
   googleAnalytics: '0', // Google Analytics tracking id
 };
 
