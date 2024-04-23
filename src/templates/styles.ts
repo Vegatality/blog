@@ -79,6 +79,7 @@ export const ArticleMetadata = styled('div', {
 export const Content = styled('section', {
   wordBreak: 'keep-all',
   maxWidth: '$contentWidth',
+  flexShrink: 0,
 
   h1: {
     marginTop: '2rem',

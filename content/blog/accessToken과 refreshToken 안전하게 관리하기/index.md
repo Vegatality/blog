@@ -11,6 +11,7 @@ thumbnail:
 
 <br />
 <br />
+
 # AccessToken
 AccessToken은 유저에게 특정 권한을 주기 위한 목적으로 사용되는 토큰을 의미합니다. AccessToken에는 유저에 대한 정보를 암호화한 문자열이 담겨있습니다.
 
@@ -45,8 +46,8 @@ Access 토큰이 소유자가 특정 권한을 가질 수 있게 하는 토큰�
 - <mark style="background: #ABF7F7A6;">데이터베이스에 각 사용자에 1대1로 맵핑되는 Access Token, Refresh Token 쌍을 저장</mark>한다.
 - 정상적인 사용자는 기존의 Access Token으로 접근하며 서버측에서는 데이터베이스에 저장된 Access Token과 비교하여 검증한다.
 - 공격자는 탈취한 Refresh Token으로 새로 Access Token을 생성한다. 그리고 서버측에 전송하면 서버는 데이터베이스에 저장된 Access Token과 공격자에게 받은 Access Token이 다른 것을 확인한다.
-- <mark style="background: #ABF7F7A6;">만약 데이터베이스에 저장된 토큰이 아직 만료되지 않은 경우, 즉 굳이 Access Token을 새로 생성할 이유가 없는 경우 서버는 Refresh Token이 탈취당했다고 가정하고 두 토큰을 모두 만료시킨다.</mark>
-- <mark style="background: #FF5582A6;">이 경우 정상적인 사용자는 자신의 토큰도 만료됐으니 다시 로그인해야 한다.</mark> <mark style="background: #ADCCFFA6;">하지만 공격자의 토큰 역시 만료됐기 때문에 공격자는 정상적인 사용자의 리소스에 접근할 수 없다.</mark>
+- 만약 데이터베이스에 저장된 토큰이 아직 만료되지 않은 경우, 즉 굳이 Access Token을 새로 생성할 이유가 없는 경우 서버는 Refresh Token이 탈취당했다고 가정하고 두 토큰을 모두 만료시킨다.
+- 이 경우 정상적인 사용자는 자신의 토큰도 만료됐으니 다시 로그인해야 한다. 하지만 공격자의 토큰 역시 만료됐기 때문에 공격자는 정상적인 사용자의 리소스에 접근할 수 없다.
 
 이 때 <mark style="background: #BBFABBA6;">중요한 점은</mark> 발급된 토큰 자체는 모든 토큰 기반 인증 방식이 그렇듯이 그냥 그 JWT 문자열 자체로 존재하는 것이기 때문에 <mark style="background: #BBFABBA6;">클라이언트나 서버측에서 전역적으로 만료시킬 수 있는 개체가 아니라는 점입니다.</mark> 그렇기 때문에 <mark style="background: #BBFABBA6;">토큰의 유효 기간이 지나기 전까지는 토큰을 NoSQL 같은 데이터베이스에 저장하여 관리할 필요가 있습니다.</mark>
 
