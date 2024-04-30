@@ -81,6 +81,10 @@ export const Content = styled('section', {
   maxWidth: '$contentWidth',
   flexShrink: 0,
 
+  '@md': {
+    minWidth: '$contentWidth',
+  },
+
   h1: {
     marginTop: '2rem',
     marginBottom: '1.25rem',
