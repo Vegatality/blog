@@ -1,13 +1,14 @@
 ---
-title: tanstack query의 리렌더링 최적화 기법에 대하여
+title: tanstack query의 리렌더링 최적화 기법
 date: 2024-05-26
 description: tanstack query의 리렌더링 최적화 기법의 비밀 structural sharing에 대하여
 tags:
   - tanstackquery
 thumbnail:
 ---
-![](Pasted%20image%2020240601135733.png)
+![structural sharing](Pasted_image_20240601135733.png)
 
+<br />
 <br />
 
 ## 공식 문서에 나와있는 structural sharing에 대한 설명
@@ -27,6 +28,8 @@ React Query는 '구조적 공유'라는 기술을 사용하여 재렌더링 사�
 <mark style="background: #BBFABBA6;">위 말을 요약하자면</mark>, 쉽게 말해서 쿼리 결과들에 대한 레퍼런스가 데이터가 실제로 변경이 됐을 때만 변경되게끔 만든다는 뜻입니다.
 
 <br />
+<br />
+<br />
 
 ### Structural Sharing를 통한 최적화
 
@@ -41,16 +44,18 @@ React Query는 새로운 데이터를 만들 때 가능한 한 기존의 데이�
 
 서버에서 `id` 1에 대한 값이 업데이트되었다면, React Query는 아래 코드와 같이 모든 데이터를 교체하지 않고 변경된 값만 교체하여 기존의 데이터는 유지합니다.
 
-```json
+```diff
 [
-  - { "id": 1, "name": "Learn React", "status": "active" },
-  + { "id": 1, "name": "Learn React", "status": "done" },
+- { "id": 1, "name": "Learn React", "status": "active" },
++ { "id": 1, "name": "Learn React", "status": "done" },
   { "id": 2, "name": "Learn React Query", "status": "todo" }
 ]
 ```
 
 React Query는 이전 데이터를 유지함으로 변경되지 않은 데이터를 사용하는 컴포넌트에서는 리렌더링이 발생하지 않도록 최적화합니다. 기존의 데이터를 유지하지 않고 항상 새로운 데이터로 사용하기 위해서는 `structuralSharing` 옵션을 `false`로 설정하면 됩니다.
 
+<br />
+<br />
 <br />
 
 ### 어떻게 이게 가능한 것일까요?
@@ -168,6 +173,8 @@ export function replaceEqualDeep(a: any, b: any): any {
 
 ```
 
+<br />
+
 코드의 핵심은 nested된 모든 프로퍼티까지 비교하여 <mark style="background: #BBFABBA6;">변경된 부분만을 새로운 b로 교체</mark>하고 그렇지 않다면 a를 활용하는 것입니다.
 (a와 b가 완전 동일하다면 a, 일부만 변경되었다면 copy, 완전 다르다면 b를 반환하게 되는 로직입니다.)
 재귀 함수를 통해서 이를 구현한 것을 확인할 수 있습니다.
@@ -180,7 +187,7 @@ export function replaceEqualDeep(a: any, b: any): any {
 >간단한 중첩 객체를 대입시켜서 로직을 따라가면 이해하기 쉽다.
 
 
-
+<br />
 <br />
 <br />
 

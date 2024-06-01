@@ -1,7 +1,7 @@
 ---
-title: tanstack query의 키 관리 기법에 대하여
+title: tanstack query의 키 관리 기법
 date: 2024-05-30
-description: tanstack query의 계층 키에 대해 알아보자
+description: tanstack query는 어떻게 유니크한 키를 관리할까
 tags:
   - tanstackquery
 thumbnail:
@@ -23,11 +23,13 @@ console.log(a === b) // ?
 자바스크립트를 공부한 사람이라면 위 코드에서 `false`가 로그로 찍힌다는 것을 알 수 있습니다.
 
 리액트의 렌더링 때마다 새로운 배열값이 `queryKey`에 할당될 것입니다.
-매번 새로운 값이 들어오는 셈이니 당연히 매번 데이터가 변경, 새로운 키라고 인식하겠죠.
-하지만 useQuery를 한 번이라도 사용했다면, 당연히 그렇게 동작하지 않는다는 것을 알 수 있습니다.
+매번 새로운 값이 들어오는 셈이니 당연히 매번 데이터가 변경, 새로운 키라고 인식하겠죠. <br />
+하지만 useQuery를 한 번이라도 사용했다면, 당연히 그렇게 동작하지 않는다는 것을 알 수 있습니다. <br />
 이를 통해 tanstack query가 내부적으로 queryKey에 할당된 값의 메모리 주소를 그대로 비교해서 데이터의 변경을 캐치하는 것은 아님을 예상할 수 있겠죠.
 무엇인가 이를 위한 특별한 로직이 있는 것입니다.
 
+<br />
+<br />
 <br />
 
 ## hashKey 함수
@@ -90,6 +92,8 @@ export function isPlainObject(o: any): o is object {
 ```
 
 
+<br />
+<br />
 <br />
 
 ### JSON.stringify()의 두 번째 인자 활용
@@ -155,11 +159,16 @@ useQuery({ queryKey: ['user', { something: 2, some: 1 } ], ...})
 
 
 <br />
+<br />
+<br />
 
 ## 결론
 - queryKey의 비교는 stringified된 string type 단에서 비교된다.
 - 내부적으로 `hashKey`라는 함수를 사용하는데 `JSON.stringifiy` 메서드의  두 번째 인자 replacer를 활용하여 정렬을 통해 정확한 키의 비교를 수행한다.
 
+<br />
+<br />
+<br />
 
 ## 레퍼런스
 1. https://ko.javascript.info/json

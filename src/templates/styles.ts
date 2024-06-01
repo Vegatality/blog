@@ -20,6 +20,13 @@ export const ContentContainer = styled('div', {
     flexDirection: 'row-reverse',
     justifyContent: 'flex-end',
   },
+
+  p: {
+    fontSize: '$lg',
+  },
+  li: {
+    fontSize: '$lg',
+  },
 });
 
 export const TableOfContents = styled('div', {
