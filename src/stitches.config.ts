@@ -55,6 +55,13 @@ export const { styled, css, getCssText, createTheme, globalCss } = createStitche
       lg: '1.125rem' /* 18px */,
       xl: '1.25rem' /* 20px */,
     },
+    lineHeights: {
+      xs: '1rem' /* 16px */,
+      sm: '1.25rem' /* 20px */,
+      base: '1.5rem' /* 24px */,
+      lg: '1.75rem' /* 28px */,
+      xl: '1.75rem' /* 28px */,
+    },
     shadows: {
       themeSymbol: '$colors$gray400',
     },
