@@ -1,10 +1,13 @@
 ---
 title: any는 유해한 것으로 고려됩니다. 단 이 경우만 제외하고 말이죠
 date: 2024-04-08
-description: 'typescript any에 대한 오해'
-tags: ['#Typescript']
-thumbnail:
+description: typescript any에 대한 오해
+tags:
+  - "#Typescript"
+thumbnail: ./tistory_thumbnail(256x256).png
 ---
+![typescript any](tistory_thumbnail(256x256).png)
+
 
 ## 개요
 
@@ -70,10 +73,8 @@ Type '(input: string) => void' does not satisfy the constraint '(...args: unknow
 
 ```
 
-
 <br />
 <br />
-
 
 이는 사실 함수 매개변수 타입을 `unknown`으로 바꾸면 해결되기는 합니다.
 
