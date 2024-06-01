@@ -31,7 +31,7 @@ console.log(a === b) // ?
 <br />
 
 ## hashKey 함수
-정답은 `hashKey`라는 간단한 함수에 있었습니다.
+정답은 [hashKey](https://github.com/TanStack/query/blob/b0c09aa63d7b8dad84d34ee5ba49d280032e467d/packages/query-core/src/utils.ts#L178) 라는 간단한 함수에 있었습니다.
 `haskKey`함수를 포함하여 내부적으로 사용하는 함수의 코드까지 가져와봤습니다.
 
 ```ts
