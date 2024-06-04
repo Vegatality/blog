@@ -36,6 +36,8 @@ export const TableOfContents = styled('div', {
     position: 'sticky',
     top: 130,
     margin: '0 2rem 1.5rem 2rem',
+    maxHeight: '500px',
+    overflowY: 'scroll',
   },
 
   marginBottom: '1.5rem',

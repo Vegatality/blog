@@ -6,7 +6,9 @@ tags:
   - tanstackquery
 thumbnail:
 ---
+
 ## 개요
+
 tanstack query는 유니크한 query key를 통해서 쿼리를 관리합니다.
 그런데 primitive type이 아닌 reference type을 사용해도 실제 데이터가 변경되지 않는 이상 재요청을 보내지 않습니다.
 
@@ -15,11 +17,12 @@ useQuery({ queryKey: ['user', [userId] ], ...})
 ```
 
 ```js
-const a = [1, 2, 3]
-const b = [1, 2, 3]
+const a = [1, 2, 3];
+const b = [1, 2, 3];
 
-console.log(a === b) // ?
+console.log(a === b); // ?
 ```
+
 자바스크립트를 공부한 사람이라면 위 코드에서 `false`가 로그로 찍힌다는 것을 알 수 있습니다.
 
 리액트의 렌더링 때마다 새로운 배열값이 `queryKey`에 할당될 것입니다.
@@ -33,8 +36,9 @@ console.log(a === b) // ?
 <br />
 
 ## hashKey 함수
+
 정답은 [hashKey](https://github.com/TanStack/query/blob/b0c09aa63d7b8dad84d34ee5ba49d280032e467d/packages/query-core/src/utils.ts#L178) 라는 간단한 함수에 있었습니다.
-`haskKey`함수를 포함하여 내부적으로 사용하는 함수의 코드까지 가져와봤습니다.
+`hashKey`함수를 포함하여 내부적으로 사용하는 함수의 코드까지 가져와봤습니다.
 
 ```ts
 /**
@@ -47,11 +51,11 @@ export function hashKey(queryKey: QueryKey | MutationKey): string {
       ? Object.keys(val)
           .sort()
           .reduce((result, key) => {
-            result[key] = val[key]
-            return result
+            result[key] = val[key];
+            return result;
           }, {} as any)
       : val,
-  )
+  );
 }
 
 function hasObjectPrototype(o: any): boolean {
@@ -91,27 +95,26 @@ export function isPlainObject(o: any): o is object {
 }
 ```
 
-
 <br />
 <br />
 <br />
 
 ### JSON.stringify()의 두 번째 인자 활용
 
-`hashKey` 함수의 코드를 보면 `JSON.stringify` 메서드의 두 번째 인자를 활용한 것을 볼 수 있습니다. 
-
+`hashKey` 함수의 코드를 보면 `JSON.stringify` 메서드의 두 번째 인자를 활용한 것을 볼 수 있습니다.
 
 [mdn](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)에 따르면, `JSON.stringify`의 문법은 다음과 같습니다.
+
 ```js
-let json = JSON.stringify(value, [replacer, space])
+let json = JSON.stringify(value, [replacer, space]);
 ```
 
 - `value`
-인코딩 하려는 값
+  인코딩 하려는 값
 - `replacer`
-JSON으로 인코딩 하길 원하는 프로퍼티가 담긴 배열. 또는 매핑 함수 `function(key, value)`
+  JSON으로 인코딩 하길 원하는 프로퍼티가 담긴 배열. 또는 매핑 함수 `function(key, value)`
 - `space`
-서식 변경 목적으로 사용할 공백 문자 수
+  서식 변경 목적으로 사용할 공백 문자 수
 
 <br />
 
@@ -124,6 +127,7 @@ JSON으로 인코딩 하길 원하는 프로퍼티가 담긴 배열. 또는 매�
 <br />
 
 다시 `hashKey`함수 코드로 돌아가 보겠습니다.
+
 ```ts
 /**
  * Default query & mutation keys hash function.
@@ -135,13 +139,12 @@ export function hashKey(queryKey: QueryKey | MutationKey): string {
       ? Object.keys(val)
           .sort()
           .reduce((result, key) => {
-            result[key] = val[key]
-            return result
+            result[key] = val[key];
+            return result;
           }, {} as any)
       : val,
-  )
+  );
 }
-
 ```
 
 두 번째 인자로 콜백함수를 넣어준 것을 알 수 있습니다.
@@ -157,19 +160,20 @@ useQuery({ queryKey: ['user', { some: 1, something: 2} ], ...})
 useQuery({ queryKey: ['user', { something: 2, some: 1 } ], ...})
 ```
 
-
 <br />
 <br />
 <br />
 
 ## 결론
+
 - queryKey의 비교는 stringified된 string type 단에서 비교된다.
-- 내부적으로 `hashKey`라는 함수를 사용하는데 `JSON.stringifiy` 메서드의  두 번째 인자 replacer를 활용하여 정렬을 통해 정확한 키의 비교를 수행한다.
+- 내부적으로 `hashKey`라는 함수를 사용하는데 `JSON.stringifiy` 메서드의 두 번째 인자 replacer를 활용하여 정렬을 통해 정확한 키의 비교를 수행한다.
 
 <br />
 <br />
 <br />
 
 ## 레퍼런스
+
 1. https://ko.javascript.info/json
 2. https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
