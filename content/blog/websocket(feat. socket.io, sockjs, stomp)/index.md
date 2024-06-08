@@ -3,8 +3,7 @@ title: websocket(feat. socket.io, sockjs, stomp)
 date: 2024-04-08
 description: websocket에 대하여
 tags:
-  - '#javascript'
-  - '#react'
+  - javascript
 thumbnail:
 ---
 
@@ -256,7 +255,9 @@ SockJS를 쓰면 WebSocket api를 지원하는 브라우저에서 WebSocket api�
 역시 똑같은 것을 궁금해하는 사람이 있었다.
 [Does SockJS emulate websockets even on a browser that supports websockets?](https://stackoverflow.com/questions/24584284/does-sockjs-emulate-websockets-even-on-a-browser-that-supports-websockets)를 참고해보면, native WebSocket을 먼저 사용하려고 하되, 없으면 SockJS에서 WebSocket과 유사한 api를 expose한다고 한다.
 
-그럼에도 불구하고 if문을 통해 webSocketFactory를 정의하는 까닭은 그냥 WebSocket으로 했을 때와 SockJS로 했을 때의 속도? 면에서 차이가 있기 때문이라고 추정한다(개인적인 의견임). SockJS로 하는 것보다 STOMP 기본값(기본 ws instance)인 WebSocket api를 사용하는 것이 더 빠를 것이다.
+그냥 SockJS를 사용하면 안될까?
+
+그럼에도 불구하고 if문을 통해 webSocketFactory를 정의하여 WebSocket api를 사용하려고 하는 까닭은 html5에서 등장한 WebSocket api가 공식적으로 웹 소켓을 사용하는 방법일뿐더러 WebSocket으로 했을 때와 SockJS로 했을 때의 속도? 면에서 차이가 있기 때문이라고 추정한다(SockJS에서 구현된 방식은 websocket처럼 동작하도록 모방된 방식.).
 
 <br />
 <br />

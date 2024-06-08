@@ -37,7 +37,7 @@ export const TableOfContents = styled('div', {
     top: 130,
     margin: '0 2rem 1.5rem 2rem',
     maxHeight: '500px',
-    overflowY: 'scroll',
+    overflowY: 'auto',
   },
 
   marginBottom: '1.5rem',
@@ -109,10 +109,14 @@ export const Content = styled('section', {
     marginBottom: '1rem',
     paddingBottom: '0.25rem',
     borderBottom: '1px solid $borderGray',
+    color: '$skyBlue',
 
     a: {
       borderBottom: 'none',
     },
+  },
+  h4: {
+    fontSize: '$lg',
   },
   a: {
     borderBottom: '1px solid $borderPrimary',

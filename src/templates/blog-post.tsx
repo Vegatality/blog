@@ -4,6 +4,7 @@ import React from 'react';
 
 import ArticleNavigator from '~/components/ArticleNavigator';
 import Profile from '~/components/Profile';
+import ScrollToTop from '~/components/ScrollToTop';
 import Seo from '~/components/Seo';
 import Tags from '~/components/Tags';
 import Utterances from '~/components/Utterances';
@@ -12,7 +13,7 @@ import Layout from '~/layout';
 
 import 'katex/dist/katex.min.css';
 
-import { Article, TableOfContents, Content, Footer, Header, ArticleMetadata, Title, ContentContainer } from './styles';
+import { Article, ArticleMetadata, Content, ContentContainer, Footer, Header, TableOfContents, Title } from './styles';
 
 const BlogPostTemplate = ({ data, location }: PageProps<GatsbyTypes.BlogPostBySlugQuery>) => {
   const post = data.markdownRemark!;
@@ -42,7 +43,7 @@ const BlogPostTemplate = ({ data, location }: PageProps<GatsbyTypes.BlogPostBySl
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo lang='en' title={title ?? ''} description={description ?? post.excerpt ?? ''} meta={meta} />
+      <Seo lang='ko' title={title ?? ''} description={description ?? post.excerpt ?? ''} meta={meta} />
       <Article itemScope itemType='http://schema.org/Article'>
         <Header>
           <Title itemProp='headline'>{title}</Title>
@@ -55,8 +56,6 @@ const BlogPostTemplate = ({ data, location }: PageProps<GatsbyTypes.BlogPostBySl
           <TableOfContents dangerouslySetInnerHTML={{ __html: post.tableOfContents ?? '' }} />
           <Content dangerouslySetInnerHTML={{ __html: post.html ?? '' }} itemProp='articleBody' />
         </ContentContainer>
-        {/* <TableOfContents dangerouslySetInnerHTML={{ __html: post.tableOfContents ?? '' }} />
-        <Content dangerouslySetInnerHTML={{ __html: post.html ?? '' }} itemProp='articleBody' /> */}
         <Footer>
           <Profile />
         </Footer>
@@ -66,6 +65,7 @@ const BlogPostTemplate = ({ data, location }: PageProps<GatsbyTypes.BlogPostBySl
         <DiscussionEmbed shortname={commentConfig?.disqusShortName} config={disqusConfig} />
       )}
       <ArticleNavigator previousArticle={previous} nextArticle={next} />
+      <ScrollToTop />
     </Layout>
   );
 };

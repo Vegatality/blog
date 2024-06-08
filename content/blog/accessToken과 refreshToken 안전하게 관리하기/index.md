@@ -3,7 +3,7 @@ title: accessToken과 refreshToken 안전하게 관리하기
 date: 2024-04-23
 description: token을 안전하게 관리하는 방식에 대하여 알아봅니다.
 tags:
-  - "#javascript"
+  - javascript
 thumbnail:
 ---
 # 개요

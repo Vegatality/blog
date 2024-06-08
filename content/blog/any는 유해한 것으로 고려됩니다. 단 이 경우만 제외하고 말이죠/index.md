@@ -3,7 +3,7 @@ title: any는 유해한 것으로 고려됩니다. 단 이 경우만 제외하�
 date: 2024-04-08
 description: typescript any에 대한 오해
 tags:
-  - "#Typescript"
+  - typescript
 thumbnail: ./tistory_thumbnail(256x256).png
 ---
 ![typescript any](tistory_thumbnail(256x256).png)

@@ -13,6 +13,7 @@ export const { styled, css, getCssText, createTheme, globalCss } = createStitche
       gray700: '#1a202c',
       white: '#fff',
       black: '#000',
+      skyBlue: '#087da4',
       yellow: '#ffd75e',
       yellowAccent: '#ffa659',
 
@@ -87,6 +88,7 @@ export const darkTheme = createTheme('dark-theme', {
     gray600: '#e5dfd6',
     gray700: '#f6f1ea',
     black: '#282C35',
+    skyBlue: '#69b8d7',
 
     primary100: '#edeafc',
     primary200: '#b9acff',
