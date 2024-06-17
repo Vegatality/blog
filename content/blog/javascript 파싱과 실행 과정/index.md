@@ -110,7 +110,7 @@ AST는 코드의 **문법적인 구조를 추상화하여 표현**합니다.
 즉, 컴파일이 된 이후의 코드는 언어에 따라 바이트 코드인 경우도 있고 기계어로 직접 변환이 되는 경우도 있습니다.
 
 ex)
-C -> Assembly
+C -> Assembly <br />
 Java -> bytecode
 
 <br />
@@ -128,9 +128,9 @@ Java -> bytecode
 프로그래밍 언어(소스코드)를 비슷한 수준의 추상화를 가진 다른 언어로 변환하는 과정입니다.
 
 ex)
-C++ -> C
-ES6 -> ES5 (Babel)
-typescript / coffescript -> javascript
+C++ -> C <br />
+ES6 -> ES5 (Babel) <br />
+typescript / coffescript -> javascript <br />
 sass / scss -> css
 
 <br />
