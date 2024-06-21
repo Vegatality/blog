@@ -12,6 +12,14 @@ interface FeedSerializeProps {
 export const plugins = [
   'gatsby-plugin-image',
   {
+    resolve: 'gatsby-plugin-robots-txt',
+    options: {
+      host: siteMetadata.siteUrl,
+      sitemap: `${siteMetadata.siteUrl}/sitemap.xml`,
+    },
+  },
+  'gatsby-plugin-sitemap',
+  {
     resolve: 'gatsby-plugin-module-resolver',
     options: {
       root: './src',
@@ -131,7 +139,7 @@ export const plugins = [
             }
           `,
           output: '/rss.xml',
-          title: 'Gatsby Starter Lavendar RSS Feed',
+          title: 'vegatality blog RSS Feed',
         },
       ],
     },

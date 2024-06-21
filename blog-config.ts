@@ -3,7 +3,7 @@ const config = {
   author: 'Vegatality', // Your name
   // eslint-disable-next-line quotes
   description: "I'm in the process of migration from Tistory blog...", // Blog description
-  siteUrl: 'https://vegatality.netlify.app/',
+  siteUrl: 'https://vegatality.netlify.app',
   thumbnail: '/thumbnails/vega-wide.webp', // Default blog thumbnail. i.e. '/thumbnails/main.png'
   social: {
     github: 'Vegatality', // GitHub username
