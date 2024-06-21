@@ -1,11 +1,14 @@
 {
   "name": "gatsby-starter-lavender",
   "private": true,
-  "description": "purple flavored blog starter based on Gatsby",
+  "description": "Frontend Dev Blog",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=20"
+  },
   "author": "vegatality <vegatality@gmail.com>",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby clean && gatsby build",
     "dev": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
