@@ -12,7 +12,7 @@ const config = {
     linkedin: '', // LinkedIn username
     instagram: '', // Instagram username
   },
-  keywords: ['blog', 'javascript', 'typescript', 'web', 'react', 'frontend', 'development'],
+  keywords: ['blog', 'javascript', 'typescript', 'web', 'react', 'frontend', 'development', 'next.js'],
   comment: {
     utterances: 'Vegatality/blog', // Your GitHub repository
     disqusShortName: '', // Disqus short name
